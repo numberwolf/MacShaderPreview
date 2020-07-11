@@ -1,5 +1,14 @@
 # GPUImage #
 
+# News
+
+### changyanlong (porschegt23@foxmail.com)
+
+* Fix Bugs: showing preview and shaderview error;
+* 解决Bugs: 预览和渲染窗口出错（坐标重合问题）
+
+# Old:
+
 <div style="float: right"><img src="http://sunsetlakesoftware.com/sites/default/files/GPUImageLogo.png" /></div>
 
 <a href="https://zenodo.org/record/10416#.U5YGaF773Md"><img src="https://zenodo.org/badge/doi/10.5281/zenodo.10416.svg" /></a>
