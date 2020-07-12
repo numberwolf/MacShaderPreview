@@ -29,6 +29,7 @@ NSString *const kGPUImageInitialFragmentShaderString = @"varying vec2 textureCoo
         self.previewView = nil;
     }
     [inputCamera addTarget:self.shaderOutputView];
+    [self renderOutput];
     
     
 }
@@ -74,6 +75,22 @@ NSString *const kGPUImageInitialFragmentShaderString = @"varying vec2 textureCoo
     [self compile:self];
 }
 
+- (void) renderOutput {
+    if (self.shaderOutputView != nil) {
+        [inputCamera pauseCameraCapture];
+        if (testFilter != nil)
+        {
+            [inputCamera removeTarget:testFilter];
+            [testFilter removeTarget:self.shaderOutputView];
+        }
+        testFilter = [[GPUImageFilter alloc] initWithVertexShaderFromString:self.vertexShader fragmentShaderFromString:self.fragmentShader];
+        
+        [inputCamera addTarget:testFilter];
+        [testFilter addTarget:self.shaderOutputView];
+        [inputCamera resumeCameraCapture];
+    }
+}
+
 - (IBAction)compile:(id)sender;
 {
     [self.window makeFirstResponder:nil];
@@ -99,25 +116,13 @@ NSString *const kGPUImageInitialFragmentShaderString = @"varying vec2 textureCoo
     }
 
     [self.displayTabView selectTabViewItem:self.displayTabItem];
-    
-    if (self.shaderOutputView != nil) {
-        [inputCamera pauseCameraCapture];
-        if (testFilter != nil)
-        {
-            [inputCamera removeTarget:testFilter];
-            [testFilter removeTarget:self.shaderOutputView];
-        }
-        testFilter = [[GPUImageFilter alloc] initWithVertexShaderFromString:self.vertexShader fragmentShaderFromString:self.fragmentShader];
-
-        [inputCamera addTarget:testFilter];
-        [testFilter addTarget:self.shaderOutputView];
-    }
+    [self renderOutput];
     
 //    NSLog(@"previewView ===> %f, %f", self.previewView.frame.origin.y, self.previewView.frame.origin.y);
 //    NSLog(@"shaderOutputView ===> %f, %f", self.shaderOutputView.frame.origin.y, self.shaderOutputView.frame.origin.y);
-
-    [inputCamera resumeCameraCapture];
 }
+
+
 
 - (IBAction)switchView:(id)sender {
     NSLog(@"switch click");
