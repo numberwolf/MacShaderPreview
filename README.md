@@ -4,6 +4,8 @@
 
 > 一款二次开发的GL Shader渲染预览工具
 
+> <img src="readme.jpg" width="700px" />
+
 # News
 
 ### changyanlong (porschegt23@foxmail.com)
