@@ -1,6 +1,7 @@
 # MacShaderDesigner #
 
 > Mac Shader Designer, secondary development; https://github.com/numberwolf/MacShaderPreview
+
 > 一款二次开发的GL Shader渲染预览工具
 
 # News
