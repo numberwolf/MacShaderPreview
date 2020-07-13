@@ -1,11 +1,18 @@
-# GPUImage #
+# MacShaderDesigner #
+
+> Mac Shader Designer, secondary development; https://github.com/numberwolf/MacShaderPreview
+> 一款二次开发的GL Shader渲染预览工具
 
 # News
 
 ### changyanlong (porschegt23@foxmail.com)
 
-* Fix Bugs: showing preview and shaderview error;
-* 解决Bugs: 预览和渲染窗口出错（坐标重合问题）
+* 能力支持
+    * 1 bugs
+        * Fix Bugs: showing preview and shaderview error;
+        * 解决Bugs: 预览和渲染窗口出错（坐标重合问题）
+    * 支持双窗口切换
+    * 稳定性提升
 
 # Old:
 
