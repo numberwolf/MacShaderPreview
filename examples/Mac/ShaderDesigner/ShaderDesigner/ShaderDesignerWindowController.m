@@ -31,6 +31,18 @@ NSString *const kGPUImageInitialFragmentShaderString = @"varying vec2 textureCoo
     [self renderOutput];
 }
 
+- (void) addShaderOutputVieOnly {
+    self.shaderOutputView  = [GPUImageView new];
+    [self.shaderOutputView setFrame:
+     CGRectMake(0, 0, self.shaderSupView.frame.size.width, self.shaderSupView.frame.size.height)];
+    
+    [self.shaderSupView addSubview:self.shaderOutputView];
+    
+    [inputCamera addTarget:self.shaderOutputView];
+    [self renderOutput];
+}
+
+
 - (void) addShaderAll {
     self.shaderOutputView  = [GPUImageView new];
     [self.shaderOutputView setFrame:
@@ -40,7 +52,6 @@ NSString *const kGPUImageInitialFragmentShaderString = @"varying vec2 textureCoo
     
     [inputCamera addTarget:self.shaderOutputView];
     [self renderOutput];
-    
     
     self.previewView  = [GPUImageView new];
     [self.previewView setFrame:

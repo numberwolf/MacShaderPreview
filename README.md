@@ -8,8 +8,6 @@
 
 # News
 
-### changyanlong (porschegt23@foxmail.com)
-
 * 能力支持
     * 1 bugs
         * Fix Bugs: showing preview and shaderview error;
